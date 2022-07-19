@@ -18,4 +18,22 @@ func TestCalculator_Add(t *testing.T) {
 		calc.Add(5)
 		assert.Equal(t, 5.0, calc.output)
 	})
+
+	t.Run("should assign 12.5 to the output, when added with 7.5", func(t *testing.T) {
+		calc.Add(7.5)
+		assert.Equal(t, 12.5, calc.output)
+	})
+}
+
+func TestCalculator_Subtract(t *testing.T) {
+	calc := NewCalculator()
+	t.Run("should assign -3 to the output, when subtracted with -3", func(t *testing.T) {
+		calc.Subtract(-3)
+		assert.Equal(t, -3.0, calc.output)
+	})
+
+	t.Run("should assign -7.42 to the output, when subtracted with -4.42", func(t *testing.T) {
+		calc.Add(-4.42)
+		assert.Equal(t, -7.42, calc.output)
+	})
 }
