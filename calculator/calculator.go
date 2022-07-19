@@ -13,5 +13,9 @@ func (calc *Calculator) Add(operand float64) {
 }
 
 func (calc *Calculator) Subtract(operand float64) {
-	calc.output += operand
+	calc.output -= operand
+}
+
+func (calc *Calculator) Multiply(operand float64) {
+	calc.output *= operand
 }
