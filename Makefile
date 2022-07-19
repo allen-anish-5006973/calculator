@@ -1,7 +1,7 @@
 .PHONY: default
 
 SHELL :=/bin/bash
-GOPATH = $(go env gopath)
+GOPATH=$(go env gopath)
 
 default: setup test
 
