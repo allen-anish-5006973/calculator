@@ -51,3 +51,23 @@ func TestCalculator_Multiply(t *testing.T) {
 		assert.Equal(t, -27.5, calc.output)
 	})
 }
+
+func TestCalculator_Divide(t *testing.T) {
+	calc := NewCalculator()
+	calc.Add(10)
+	t.Run("should panic, when divided by 0", func(t *testing.T) {
+		assert.Panics(t, func() {
+			calc.Divide(0)
+		})
+	})
+
+	t.Run("should assign 5 to the output, when divided with 2", func(t *testing.T) {
+		calc.Divide(2)
+		assert.Equal(t, 5.0, calc.output)
+	})
+
+	t.Run("should assign -3.125 to the output, when divided with -1.6", func(t *testing.T) {
+		calc.Divide(-1.6)
+		assert.Equal(t, -3.125, calc.output)
+	})
+}
