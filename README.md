@@ -1,6 +1,6 @@
 # Maths
 
-In this library, we will model a calculator that will perform arithmetic operations
+In this library, we will model a calculator that will perform arithmetic operations and utilities
 
 ## Build Instructions
 
