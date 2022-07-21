@@ -2,6 +2,7 @@ package parser
 
 import (
 	"maths/constants"
+	"maths/renderer"
 	"strconv"
 	"strings"
 )
@@ -11,32 +12,20 @@ type Parser struct {
 	operand  float64
 }
 
-func NewParser() Parser {
-	return Parser{}
+func NewParser() *Parser {
+	return &Parser{" ", 0}
 }
 
 func (parser *Parser) Parse(statement string) {
-	if statement == "" {
-		panic("Cannot parse an empty string")
-	}
 	tokens := strings.Split(statement, " ")
-	if len(tokens) > 2 {
-		panic("Only operator and operand is expected")
-	}
-
 	parser.operator = constants.Operations(tokens[0])
-	if len(tokens) < 2 {
-		parser.operand = 0
-		return
-	}
-
 	parser.operand = ParseOperand(tokens[1])
 }
 
 func ParseOperand(operand string) float64 {
 	number, err := strconv.ParseFloat(operand, 64)
 	if err != nil {
-		panic("operand should be a number")
+		renderer.ViewError("operand should be a number")
 	}
 	return number
 }

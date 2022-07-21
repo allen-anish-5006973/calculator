@@ -5,13 +5,16 @@ import (
 	"maths/handler"
 	"maths/parser"
 	"maths/reader"
+	"maths/renderer"
 	"os"
 )
 
 func main() {
 	calc := calculator.NewCalculator()
+	writer := os.Stdin
 	for true {
-		input := reader.Reader(os.Stdin)
+		renderer.ViewSymbol()
+		input := reader.Reader(writer)
 		tokenizer := parser.NewParser()
 		tokenizer.Parse(input)
 		operator, operand := tokenizer.GetTokens()

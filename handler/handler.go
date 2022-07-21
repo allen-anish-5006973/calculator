@@ -1,10 +1,9 @@
 package handler
 
 import (
-	"fmt"
 	"maths/calculator"
 	"maths/constants"
-	"reflect"
+	"maths/renderer"
 )
 
 type function func(operand float64, calcInterface calculator.CalcInterface)
@@ -32,35 +31,35 @@ func RegisterHandler(operationString constants.Operations, operation function) b
 
 func ExecuteHandler(operand float64, operationString constants.Operations, calcInterface calculator.CalcInterface) {
 	if Registry[operationString] == nil {
-		panic("Invalid Function")
+		renderer.ViewError("Invalid Function")
+		return
 	}
 	Registry[operationString](operand, calcInterface)
 }
 
 func HandleAddition(operand float64, calcInterface calculator.CalcInterface) {
 	calcInterface.Add(operand)
-	//fmt.Println(calcInterface.GetValue())
-	fmt.Println(reflect.ValueOf(calcInterface), reflect.TypeOf(calcInterface))
+	renderer.ViewValue(calcInterface.GetValue())
 }
 
 func HandleSubtraction(operand float64, calcInterface calculator.CalcInterface) {
 	calcInterface.Subtract(operand)
-	fmt.Println(calcInterface.GetValue())
+	renderer.ViewValue(calcInterface.GetValue())
 }
 
 func HandleMultiplication(operand float64, calcInterface calculator.CalcInterface) {
 	calcInterface.Multiply(operand)
-	fmt.Println(calcInterface.GetValue())
+	renderer.ViewValue(calcInterface.GetValue())
 }
 
 func HandleDivision(operand float64, calcInterface calculator.CalcInterface) {
 	calcInterface.Divide(operand)
-	fmt.Println(calcInterface.GetValue())
+	renderer.ViewValue(calcInterface.GetValue())
 }
 
 func HandleCancel(operand float64, calcInterface calculator.CalcInterface) {
 	calcInterface.Cancel()
-	fmt.Println(calcInterface.GetValue())
+	renderer.ViewValue(calcInterface.GetValue())
 }
 
 func HandleExit(operand float64, calcInterface calculator.CalcInterface) {
