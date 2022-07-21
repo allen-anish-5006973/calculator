@@ -1,1 +1,22 @@
 mode: atomic
+maths/calculator/calculator.go:18.34,20.2 1 5
+maths/calculator/calculator.go:22.46,24.2 1 4
+maths/calculator/calculator.go:26.51,28.2 1 2
+maths/calculator/calculator.go:30.51,32.2 1 2
+maths/calculator/calculator.go:34.49,35.18 1 3
+maths/calculator/calculator.go:38.2,38.24 1 2
+maths/calculator/calculator.go:35.18,36.44 1 1
+maths/calculator/calculator.go:41.43,43.2 1 0
+maths/calculator/calculator.go:45.34,47.2 1 0
+maths/calculator/calculator.go:49.32,51.2 1 0
+maths/parser/parser.go:14.25,16.2 1 6
+maths/parser/parser.go:18.47,19.21 1 5
+maths/parser/parser.go:22.2,23.21 2 4
+maths/parser/parser.go:26.2,27.42 2 4
+maths/parser/parser.go:19.21,20.40 1 1
+maths/parser/parser.go:23.21,24.49 1 0
+maths/parser/parser.go:30.43,32.16 2 4
+maths/parser/parser.go:35.2,35.15 1 4
+maths/parser/parser.go:32.16,33.38 1 0
+maths/parser/parser.go:38.66,40.2 1 4
+maths/reader/reader.go:8.38,12.2 3 6
