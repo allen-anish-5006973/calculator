@@ -53,10 +53,11 @@ func (calc *Calculator) Divide(operand float64) {
 
 func (calc Calculator) GetValue() float64 {
 	return calc.output
+	
 }
 
 func (calc *Calculator) Cancel() {
-	calc.output *= 0.0
+	calc.output = 0.0
 }
 
 func (calc *Calculator) Exit() {

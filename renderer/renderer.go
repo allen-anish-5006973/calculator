@@ -3,22 +3,19 @@ package renderer
 import (
 	"fmt"
 	"io"
+	"strconv"
 )
 
-var writer io.Writer
-
-func SetWriter(newWrite io.Writer) {
-	writer = newWrite
+func ViewValue(writer io.Writer, value float64) {
+	fmt.Fprintf(writer, strconv.FormatFloat(value, 'f', 4, 64))
+	fmt.Println()
 }
 
-func ViewValue(value float64) {
-	fmt.Println(value)
+func ViewError(writer io.Writer, error string) {
+	fmt.Fprintf(writer, error)
+	fmt.Println()
 }
 
-func ViewError(error string) {
-	fmt.Println(error)
-}
-
-func ViewSymbol() {
-	fmt.Print("> ")
+func ViewSymbol(writer io.Writer) {
+	fmt.Fprintf(writer, "> ")
 }

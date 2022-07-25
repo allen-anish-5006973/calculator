@@ -11,11 +11,12 @@ import (
 
 func main() {
 	calc := calculator.NewCalculator()
-	writer := os.Stdin
+	read := os.Stdin
+	writer := os.Stdout
 	for true {
-		renderer.ViewSymbol()
-		input := reader.Reader(writer)
-		tokenizer := parser.NewParser()
+		renderer.ViewSymbol(writer)
+		input := reader.Reader(read)
+		tokenizer := parser.NewParser("", 0)
 		tokenizer.Parse(input)
 		operator, operand := tokenizer.GetTokens()
 		handler.ExecuteHandler(operand, operator, calc)
